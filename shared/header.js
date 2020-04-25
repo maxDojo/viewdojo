@@ -1,7 +1,13 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableNativeFeedback,
+} from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { width } from "../styles/global";
+import { width, boldFont } from "../styles/global";
 import ViewScreen from "../screens/viewScreen";
 
 function Header({ navigation, title }) {
@@ -10,34 +16,30 @@ function Header({ navigation, title }) {
   };
   return (
     <View style={styles.header}>
-      <MaterialIcons
-        name="menu"
-        size={28}
-        onPress={openMenu}
-        style={styles.icon}
-      />
-      <View style={styles.titleHolder}>
-        <Image
+      <TouchableNativeFeedback style={styles.iconContainer}>
+        <MaterialIcons name="menu" size={28} onPress={openMenu} />
+      </TouchableNativeFeedback>
+      {/* <View> */}
+      {/* <Image
           source={require("../assets/index.png")}
           style={styles.titleImage}
-        />
-        <Text style={styles.headerText}>{title}</Text>
-      </View>
-      <View style={styles.headerRight}>
+        /> */}
+      <Text style={styles.headerText}>{title}</Text>
+      {/* </View> */}
+      {/* <View style={styles.headerRight}>
         <Text style={styles.helpText}>?</Text>
         <Image
           style={styles.profileImage}
           source={require("../assets/index.png")}
         />
-      </View>
+      </View> */}
     </View>
   );
 }
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#4D250A",
-    width: width - 20,
-    margin: 0,
+    width: width,
     height: "100%",
     flexDirection: "row",
     alignItems: "center",
@@ -48,13 +50,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#B3965F",
     letterSpacing: 1,
-    fontFamily: "lobster-regular",
+    fontFamily: boldFont,
   },
 
-  icon: {
+  iconContainer: {
     position: "absolute",
-    left: 18,
-    height: 18,
+    left: 12,
     color: "#B3965F",
   },
   titleHolder: {
@@ -64,11 +65,11 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     marginHorizontal: 10,
-    fontFamily: "lobster-regular",
-    borderRadius: "50%",
+    fontFamily: boldFont,
+    borderRadius: 50,
   },
   profileImage: {
-    borderRadius: "50%",
+    borderRadius: 50,
     width: 48,
     height: 48,
   },
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   },
   helpText: {
     fontSize: 36,
-    fontFamily: "lobster-regular",
+    fontFamily: boldFont,
     color: "#B3965F",
     marginHorizontal: 20,
   },

@@ -5,18 +5,21 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     padding: 24,
     backgroundColor: "azure",
-    fontFamily: "lobster-regular",
+    fontFamily: mainFont,
   },
   titleText: {
-    fontFamily: "lobster-regular",
+    fontFamily: boldFont,
     fontSize: 18,
     color: "#333",
   },
   paragraph: {
-    fontFamily: "lobster-regular",
+    fontFamily: lightFont,
     marginVertical: 8,
     lineHeight: 20,
   },
 });
 
 export const width = Math.round(Dimensions.get("window").width);
+export const mainFont = "oxygen-regular";
+export const lightFont = "oxygen-light";
+export const boldFont = "oxygen-bold";
